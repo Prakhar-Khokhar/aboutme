@@ -34,7 +34,7 @@ Ongoing maintenance, debugging, safety reviews, and feature development. I've sp
 I tend to investigate questions that catch my attention, especially when the answer requires testing rather than just reading a spec. Examples include:
 
 - **Linux on real hardware:** desktop distributions, bootloaders and GRUB themes, kernel / graphics-driver behavior, and compatibility across Intel integrated graphics generations.
-- **Performance on constrained devices:** testing lightweight AI inference on older CPUs, comparing hardware bottlenecks, and exploring how much can be done with limited RAM, storage, or power.
+- **Performance on constrained devices:** tried lightweight BitNet inference on an older Pentium 3825U system and ran into CPU instruction-support limits; also compared hardware bottlenecks and explored what can realistically run with limited RAM, storage, or power.
 - **Android and custom software:** device-specific ROM / AOSP feasibility, hardware capabilities, and the practical barriers between an interesting idea and a working port.
 - **Minecraft infrastructure:** cross-play, server implementations, plugins, networking, and running a useful server without dedicated server hardware.
 - **Desktop Linux usability:** making installation and boot workflows less intimidating for people coming from Windows.
@@ -58,7 +58,7 @@ I'm still early in parts of this journey. I'd rather show the work, the decision
 
 I enjoy the full loop: **question → hypothesis → experiment → failure → diagnosis → improvement**. I care about reproducibility, practical constraints, and whether a tool helps an actual person—not just whether the idea sounds impressive.
 
-If you're interested in Linux, open source, systems programming, Minecraft infrastructure, or unusual hardware experiments, feel free to explore the repositories or reach out through my GitHub profile.
+If you're interested in Linux, open source, systems programming, Minecraft infrastructure, or unusual hardware experiments, feel free to explore the repositories or connect with me on [LinkedIn](https://www.linkedin.com/in/prakhar-khokhar-b7037b3a4/) or [GitHub](https://github.com/Prakhar-Khokhar).
 
 ---
 
