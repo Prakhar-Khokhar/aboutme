@@ -4,7 +4,7 @@
 
 I like understanding how software behaves under the hood, especially when it meets real hardware and real users. That curiosity usually turns into a project, a bug investigation, a small upstream fix, or a rather ambitious side quest. My main interests are Linux, desktop software, systems programming, and making technology work better on everyday hardware.
 
-I'm currently balancing school and JEE preparation with open-source development and learning programming. This page is a snapshot of what I'm building, investigating, and learning—not a claim that every project or patch is finished.
+I'm currently balancing JEE preparation with open-source development and learning programming. This page is a snapshot of what I'm building, investigating, and learning—not a claim that every project or patch is finished.
 
 ## What I'm working on
 
