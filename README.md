@@ -8,13 +8,15 @@ I'm currently balancing school and JEE preparation with open-source development 
 
 ## What I'm working on
 
-### [KDE Frameworks](https://invent.kde.org/) — ongoing contributions
+### [KDE Frameworks](https://invent.kde.org/) — active contributions
 
-I've been investigating freezes in KDE's **Get New Stuff** installation and update workflows, particularly around [KNewStuff](https://invent.kde.org/frameworks/knewstuff) and [KPackage](https://invent.kde.org/frameworks/kpackage).
+I've been investigating freezes and correctness issues in KDE's **Get New Stuff** installation and update workflows, particularly around [KNewStuff](https://invent.kde.org/frameworks/knewstuff) and [KPackage](https://invent.kde.org/frameworks/kpackage).
 
-The work involves moving archive extraction away from blocking GUI-thread execution, reasoning about job and worker lifecycles, cancellation and synchronization, preserving archive fallback/error behaviour, and adding regression coverage for GUI responsiveness and update execution. I'm treating this as a correctness problem as much as a performance problem: asynchronous code needs clear ownership and cleanup rules, not just a faster happy path.
+My first KDE merge request, [KPackage !139 — Fix synchronous package update execution](https://invent.kde.org/frameworks/kpackage/-/merge_requests/139), has now been **merged**. It removes redundant synchronous package-update work from the `Update` constructor, leaving execution to the normal asynchronous `PackageJob` path, and includes a regression test for the update execution behaviour.
 
-These changes are still under active development and validation. I distinguish ongoing investigations and proposed fixes from changes that have actually been merged upstream.
+Another KDE merge request is currently pending review, with more work planned around package handling and KNewStuff's asynchronous installation flow. That work involves archive extraction, job and worker lifecycles, cancellation and synchronization, preserving fallback/error behaviour, and regression coverage. I'm treating this as a correctness problem as much as a performance problem: asynchronous code needs clear ownership and cleanup rules, not just a faster happy path.
+
+I distinguish ongoing investigations and proposed fixes from changes that have actually been merged upstream.
 
 ### [ULLI-Next](https://github.com/Prakhar-Khokhar/ulli-next) — ongoing
 
@@ -34,9 +36,17 @@ I've experimented with a modded cross-play Minecraft server for a small group of
 
 ## Open-source contributions
 
-### [PorteuX Linux](https://github.com/porteux/porteux)
+### [KDE Frameworks](https://invent.kde.org/)
 
-I've contributed fixes and improvements to PorteuX, including the App Store's application database and installer workflow.
+**Merged: [KPackage !139 — Fix synchronous package update execution](https://invent.kde.org/frameworks/kpackage/-/merge_requests/139)**
+
+My first merged KDE contribution fixes a synchronous execution path in `KPackage::PackageJob::Update`. The update constructor previously triggered the package update directly, even though the normal `PackageJob::start()` path already schedules the work asynchronously. Removing that redundant call prevents the same update from being executed twice and avoids doing the work synchronously during job construction.
+
+The contribution also includes a regression test for update execution, with follow-up review feedback addressed before merging.
+
+**Another KDE merge request is pending review.** I'm continuing work in the KDE Frameworks area, including KNewStuff's asynchronous archive extraction and the lifecycle, cancellation, and cleanup guarantees that come with it. I'll keep merged work separate from work that is still being reviewed or developed.
+
+### [PorteuX Linux](https://github.com/porteux/porteux)
 
 **Merged: [#135 — Fix App Store window freezing during installations](https://github.com/porteux/porteux/pull/135)** · 1 November 2026
 
@@ -50,15 +60,13 @@ This change makes application installations asynchronous instead of blocking the
 
 This was a practical desktop-usability fix: installation work should not freeze the application that launched it. I also tested the change on PorteuX KDE Plasma 2.8 before it was merged.
 
-I value small, concrete fixes just as much as larger projects: upstream software gets better because people investigate the annoying details and send improvements back.
-
-### KDE Frameworks
-
-My current KDE work focuses on responsiveness and correctness in KNewStuff and KPackage. I'm investigating GUI freezes in package installation/update flows and working through asynchronous execution, archive handling, lifecycle safety, and regression tests. The work is ongoing; I won't label a patch as an upstream contribution until it has actually landed.
-
 ### [ULLI-Next](https://github.com/Prakhar-Khokhar/ulli-next)
 
-Ongoing maintenance, debugging, safety reviews, and feature development. I've spent time investigating partitioning edge cases, disk-selection safeguards, ISO and filesystem limits, and boot options. This is where I'm learning to think about the consequences of systems software—not just whether a feature works on the happy path.
+**Merged: [#1 — Fix legacy installer distro metadata and Fedora RAM boot](https://github.com/Prakhar-Khokhar/ulli-next/pull/1)**
+
+This contribution updated legacy installer distribution metadata, added opt-in Fedora RAM boot support, removed the external `distros.json` dependency, and improved related logging, error handling, and helper wiring. The newer Qt/C++ rewrite remained separate from these legacy-installer changes.
+
+I value small, concrete fixes just as much as larger projects: upstream software gets better because people investigate the annoying details and send improvements back.
 
 ## Experiments and technical rabbit holes
 
