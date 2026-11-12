@@ -36,7 +36,21 @@ I've experimented with a modded cross-play Minecraft server for a small group of
 
 ### [PorteuX Linux](https://github.com/porteux/porteux)
 
-I've contributed fixes and improvements around the PorteuX App Store and related scripts, including work involving its JSON app database and Steam / 32-bit support. I value small, concrete fixes just as much as larger projects: upstream software gets better because people investigate the annoying details and send improvements back.
+I've contributed fixes and improvements to PorteuX, including the App Store's application database and installer workflow.
+
+**Merged: [#135 — Fix App Store window freezing during installations](https://github.com/porteux/porteux/pull/135)** · 1 November 2026
+
+This change makes application installations asynchronous instead of blocking the GTK main loop:
+
+- Replaced the blocking `subprocess.run()` call with `subprocess.Popen()`, so the App Store remains responsive while installers run.
+- Used GLib I/O watches to drain installer stdout and stderr without letting full pipes stall a process.
+- Used a GLib child watch to collect the installer process's exit status and finish handling only after the process and output streams are complete.
+- Started installers in their own session so they can continue running if the App Store is closed.
+- Closed the installation-options dialog when installation starts, rather than keeping it open until the installer finishes.
+
+This was a practical desktop-usability fix: installation work should not freeze the application that launched it. I also tested the change on PorteuX KDE Plasma 2.8 before it was merged.
+
+I value small, concrete fixes just as much as larger projects: upstream software gets better because people investigate the annoying details and send improvements back.
 
 ### KDE Frameworks
 
