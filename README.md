@@ -24,6 +24,8 @@ I distinguish ongoing investigations and proposed fixes from changes that have a
 
 I'm maintaining the project and developing its newer native **Qt 6 / C++20** direction. The rewrite introduces structured installation plans, platform-specific backends, disk discovery and identity checks, partition-layout previews, ISO handling and validation. It is also teaching me to think carefully about failure paths and the consequences of system-level operations.
 
+Alongside that newer rewrite, I've worked on the existing Windows/PowerShell installer: updating its distribution metadata, adding opt-in Fedora RAM boot support, removing its dependency on an external `distros.json` file, and improving related logging, error handling, and helper wiring. These changes are part of ULLI-Next's own development.
+
 The Qt/C++ rewrite is at a buildable development stage, but it is **experimental and not ready for real disk installations**. The legacy Linux/Python and Windows/PowerShell implementations remain in the repository; see the project README for the current status and safety notes.
 
 ### [PumpkinMC](https://github.com/Prakhar-Khokhar/Pumpkin-Mc) — exploration
@@ -59,12 +61,6 @@ This change makes application installations asynchronous instead of blocking the
 - Closed the installation-options dialog when installation starts, rather than keeping it open until the installer finishes.
 
 This was a practical desktop-usability fix: installation work should not freeze the application that launched it. I also tested the change on PorteuX KDE Plasma 2.8 before it was merged.
-
-### [ULLI-Next](https://github.com/Prakhar-Khokhar/ulli-next)
-
-**Merged: [#1 — Fix legacy installer distro metadata and Fedora RAM boot](https://github.com/Prakhar-Khokhar/ulli-next/pull/1)**
-
-This contribution updated legacy installer distribution metadata, added opt-in Fedora RAM boot support, removed the external `distros.json` dependency, and improved related logging, error handling, and helper wiring. The newer Qt/C++ rewrite remained separate from these legacy-installer changes.
 
 I value small, concrete fixes just as much as larger projects: upstream software gets better because people investigate the annoying details and send improvements back.
 
