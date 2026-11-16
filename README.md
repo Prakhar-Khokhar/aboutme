@@ -94,7 +94,7 @@ I'm still early in parts of this journey. I'd rather show the work, the decision
 
 I enjoy the full loop: **question → hypothesis → experiment → failure → diagnosis → improvement**. I care about reproducibility, practical constraints, and whether a tool helps an actual person—not just whether the idea sounds impressive. I also try to be explicit about what is experimental, what is validated, and what has actually shipped.
 
-If you're interested in Linux, KDE, open source, systems programming, Minecraft infrastructure, or unusual hardware experiments, feel free to explore the repositories or connect with me on [LinkedIn](https://www.linkedin.com/in/prakhar-khokhar-b7037b3a4/) or [GitHub](https://github.com/Prakhar-Khokhar).
+If you're interested in Linux, KDE, open source, systems programming, Minecraft infrastructure, or unusual hardware experiments, feel free to explore the repositories or connect with me on [GitHub](https://github.com/Prakhar-Khokhar).
 
 ---
 
